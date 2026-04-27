@@ -21,6 +21,8 @@ spec:
         repoURL: https://github.com/kse-it-consulting/kse-labs-deployment.git
         targetRevision: main
         path: '{{path}}'
+        directory:
+          recurse: true
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{path.basename}}'
