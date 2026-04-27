@@ -1,0 +1,24 @@
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sRequiredLabels
+metadata:
+  name: deployments-must-have-app-labels
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+spec:
+  enforcementAction: dryrun
+  match:
+    kinds:
+      - apiGroups: ["apps"]
+        kinds: ["Deployment"]
+    namespaces:
+      - applications
+  parameters:
+    message: >-
+      Deployments in 'applications' must carry these labels:
+      owner, env, app.kubernetes.io/name, cost-center.
+    labels:
+      - key: owner
+      - key: env
+      - key: app.kubernetes.io/name
+      - key: cost-center
