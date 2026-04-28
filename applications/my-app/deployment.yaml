@@ -30,7 +30,7 @@ spec:
           type: RuntimeDefault
       containers:
         - name: my-app
-          image: ghcr.io/kse-it-consulting/my-app:9023c33fd1b53efe70dcc13ef6688c0e7c9e2229
+          image: ghcr.io/kse-it-consulting/my-app:7bbda7e4b7939245a34ab7595be06b87bbfdec78
           ports:
             - name: http
               containerPort: 3000
